@@ -1,0 +1,41 @@
+{
+  "name": "nyabot-neo",
+  "version": "1.0.0",
+  "description": "A plugin-based QQ bot framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && node dist/index",
+    "lint": "eslint ./ --ignore-path .gitignore --fix",
+    "commit": "cz"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js, ts}": [
+      "./node_modules/.bin/eslint — fix"
+    ]
+  },
+  "author": "enzymii",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "cz-conventional-changelog": "3.3.0",
+    "cz-gitmoji": "^0.0.7",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.0",
+    "typescript": "^4.4.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-gitmoji"
+    }
+  }
+}
